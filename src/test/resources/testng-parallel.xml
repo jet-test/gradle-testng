@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="My Parallel Suite" verbose="1" parallel="false">
+<suite name="My Parallel Suite" verbose="1" parallel="tests">
     <test name="My Parallel Test 1">
         <classes>
             <class name="testng.MyTest"/>
