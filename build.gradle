@@ -5,8 +5,7 @@ repositories {
 }
 
 dependencies {
-    testCompile 'org.testng:testng:6.11',
-            'junit:junit:4.11'
+    testCompile 'org.testng:testng:6.11'
 }
 
 test {
@@ -16,23 +15,10 @@ test {
     }
     reports.html.enabled = false
 }
-test.finalizedBy("testMySuite", "testGradleSuite", "testParallelSuites")
-
-task testMySuite(type: Test) {
-    useTestNG() {
-        suites "src/test/resources/testng.xml"
-    }
-}
+test.finalizedBy("testParallelSuites")
 
 task testParallelSuites(type: Test) {
     useTestNG() {
         suites "src/test/resources/testng-parallel.xml"
     }
 }
-
-task testGradleSuite(type: Test) {
-    useTestNG() {
-        include "**/MyTestInGradleSuite.*"
-    }
-}
-
